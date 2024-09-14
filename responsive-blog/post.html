@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovate Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><span>Innovate</span>Blog</a>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="cta">
+                <a href="#newsletter" class="btn-primary">Subscribe</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="post-header">
+        <h1 class="post-title" id="post-title">Loading post title...</h1>
+        <div class="post-meta">
+            <span id="post-date"> Loading date...</span> | 
+            <span id="post-author"> Loading author...</span> |
+            <span id="tag" class="tag">Loading tag</span>
+        </div>
+    </div>
+    <hr>
+
+    <section class="post-content">
+        <img src="images/default.jpg" alt="Post Image" class="post-image" id="post-image">
+        <p id="post-content">Loading post content...</p>
+    </section>
+
+    <div class="post-footer">
+        <div class="social-share">
+            <span>Share the Post: </span>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <a href="#" class="next-post">Next</a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 InnovateBlog. All rights reserved.</p>
+            <p class="dayofcode">Made with ❤️ by Hamza Javed as part of the 100 Days of Code Challenge - Innovate Web Labs.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Get the post ID from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get('id');
+
+        // posts data with images
+        const posts = {
+            1: {
+                title: "Understanding React Components",
+                date: `<i class="fa-duotone fa-solid fa-calendar-days"></i> 6 Aug 2024`,
+                author: `<i class="fa-solid fa-pencil"></i> Hamza Javed`,
+                tag: `<i class="fa-solid fa-tag"></i> React`,
+                content: `<p>React components are the building blocks of a React application. They allow you to split the UI into independent, reusable pieces and think about each piece in isolation. A component in React can be as small as a button or as complex as an entire page. Components simplify the development process by breaking down the interface into smaller, manageable pieces that can be reused throughout the application.</p> <br>
+                <p>This modularity also makes it easier to maintain and scale large applications, as changes made to one component do not affect others, allowing for a more organized and efficient development process.There are two main types of components in React: functional and class components. Functional components are simpler, primarily concerned with rendering UI, while class components can manage state and lifecycle methods. As React has evolved, functional components have become more popular, especially with the introduction of hooks, which allow developers to manage state and side effects in functional components, bridging the gap between the two types. This shift has made functional components the go-to choice for most modern React applications due to their simplicity and readability.</p> <br>
+                <p>One of the key advantages of using React components is their reusability. A well-designed component can be reused multiple times across different parts of the application, reducing code duplication and enhancing consistency. Additionally, components can accept inputs, known as props, to customize their behavior, making them highly flexible. This reusability, combined with React’s virtual DOM for efficient rendering, makes React components a powerful tool for building dynamic and scalable user interfaces in web applications.</p>`,
+                image: "images/thumb-1.jpg"
+            },
+            2: {
+                title: "Getting Started with Vite.js",
+                date: `<i class="fa-duotone fa-solid fa-calendar-days"></i> 6 Aug 2024`,
+                author: `<i class="fa-solid fa-pencil"></i> Hamza Javed`,
+                tag: `<i class="fa-solid fa-tag"></i> Vite`,
+                content: `<p>Vite.js is a modern build tool that significantly improves the development experience. It provides a faster and leaner development environment compared to traditional bundlers like Webpack. Vite's key advantage lies in its instant server start and blazing fast hot module replacement (HMR), allowing developers to see changes in real-time without the delays caused by bundling large applications.</p> <br>
+                <p>This means that when you're developing with Vite, your application feels more responsive and the feedback loop is shortened, helping you stay productive.Vite achieves its speed by using ES module imports in the browser, which eliminates the need for bundling during development. Traditional tools bundle the entire application before serving it to the browser, which can be slow, especially for larger projects. Vite, however, only bundles your code when it’s actually needed, making the development process much faster.</p> <br>
+                <p>In production, Vite takes advantage of Rollup.js for bundling, ensuring optimal performance for your deployed application while keeping the development experience as fast as possible.Beyond its speed and efficiency, Vite is highly extensible and works out of the box with modern frameworks like React, Vue, and Svelte. Its zero-configuration setup is another major advantage, making it easy for developers to start working on projects without needing to configure numerous files. Whether you're building small prototypes or large-scale applications, Vite provides a streamlined and enjoyable development experience, making it an excellent choice for modern front-end development.</p>`,
+                image: "images/Thumb-2.jpeg"
+            },
+            3: {
+                title: "Styling in React with Bootstrap",
+                date: `<i class="fa-duotone fa-solid fa-calendar-days"></i> 6 Aug 2024`,
+                author: `<i class="fa-solid fa-pencil"></i> Hamza Javed`,
+                tag: `<i class="fa-solid fa-tag"></i> Bootstrap`,
+                content: `<p>Bootstrap is a popular CSS framework that can be easily integrated into React projects. Using Bootstrap with React allows developers to build responsive, mobile-first applications quickly by leveraging pre-built components and styles. The combination of Bootstrap's powerful layout system and React's component-based architecture makes it easier to create a consistent and flexible user interface. Additionally, Bootstrap’s extensive documentation and community support further streamline the development process, making it a go-to choice for developers looking to enhance the design and usability of their applications. There are two common ways to use Bootstrap in a React project: by linking to the CDN version or by installing it as an npm package.</p> <br>
+                <p> While the CDN method is simpler and faster to set up, installing Bootstrap via npm offers more control and flexibility. This method allows you to customize Bootstrap's components and import only the necessary styles, leading to better performance. By integrating Bootstrap into React projects through npm, developers can combine Bootstrap’s ready-to-use components like buttons, cards, modals, and navigation bars with React's reusable and dynamic elements.For even more flexibility, developers can use React-Bootstrap, a library that provides native React components built with Bootstrap. </p> <br>
+                <p>React-Bootstrap eliminates the need for jQuery dependencies and fully embraces React’s component-driven approach, making it easier to manage UI interactions and state. This integration enhances the development experience by providing a seamless way to implement Bootstrap’s design system while taking full advantage of React’s dynamic capabilities. Whether you’re building a simple web app or a complex enterprise solution, integrating Bootstrap with React is a powerful and efficient approach to building responsive and visually appealing user interfaces.</p>`,
+                image: "images/thumb-3.jpg"
+            },
+            4: {
+                title: "Managing State with Redux",
+                date: `<i class="fa-duotone fa-solid fa-calendar-days"></i> 6 Aug 2024`,
+                author: `<i class="fa-solid fa-pencil"></i> Hamza Javed`,
+                tag: `<i class="fa-solid fa-tag"></i> Redux`,
+                content: `<p>Redux is a state management library for JavaScript applications that helps ensure your app behaves consistently across different environments. In complex applications, managing state—like user input, API responses, or the results of computations—can become difficult as the application grows. Redux solves this problem by providing a single source of truth, or a global state, that every component can access.</p> <br>
+                <p>This allows developers to manage and update the application state predictably, making debugging and testing much simpler.One of the key principles of Redux is its unidirectional data flow. Unlike traditional two-way data binding approaches, Redux enforces that data flows in one direction. Actions are dispatched from the UI, reducers update the state based on the actions, and the updated state is then propagated back to the UI.</p> <br>
+                <p>This cycle makes it easier to understand how data is flowing and changing throughout the application. Additionally, Redux’s immutability ensures that the state is never directly modified, leading to more reliable and maintainable code.Redux is often used with React, but it can be integrated with any JavaScript framework or even vanilla JavaScript. While Redux introduces some boilerplate code, like creating actions, reducers, and store configuration, libraries like Redux Toolkit have made the setup and usage of Redux more streamlined and efficient. With features like built-in middleware for asynchronous actions, state immutability enforcement, and developer tools, Redux provides everything you need to manage the state of even the most complex applications with ease.</p>`,
+                image: "images/thumb-4.jpg"
+            },
+            5: {
+                title: "Exploring React Hooks",
+                date: `<i class="fa-duotone fa-solid fa-calendar-days"></i> 6 Aug 2024`,
+                author: `<i class="fa-solid fa-pencil"></i> Hamza Javed`,
+                tag: `<i class="fa-solid fa-tag"></i> React`,
+                content: `<p>React Hooks are functions that allow developers to use state and other React features in functional components, which were previously only available in class components. With the introduction of Hooks in React 16.8, building components became more efficient and concise, as you no longer need to switch between functional and class components to manage state or lifecycle methods. Hooks provide a way to tap into React’s stateful logic while keeping components simple and easier to understand.The two most commonly used hooks are useState and useEffect. useState allows you to add state variables to functional components, making it possible to store and update dynamic data.</p> <br>
+                <p>This removes the need for cumbersome class-based states. useEffect serves as a replacement for lifecycle methods like componentDidMount and componentDidUpdate, letting you run side effects (such as fetching data or subscribing to an event) after the render is complete. By controlling when and how side effects are executed, useEffect helps ensure that components are clean and free of unnecessary re-renders.</p> <br>
+                <p>Aside from these, there are many other useful hooks like useContext, useReducer, and useRef, each addressing specific use cases in functional components. Hooks have also inspired a new design pattern called custom hooks, where you can encapsulate and reuse logic across multiple components. This makes code more modular and easier to maintain. Overall, React Hooks have significantly modernized the way we write React applications, enabling developers to write cleaner, more readable, and maintainable code. </p>`,
+                image: "images/thumb-5.jpg"
+            },
+            6: {
+                title: "Introduction to Next.js",
+                date: `<i class="fa-duotone fa-solid fa-calendar-days"></i> 6 Aug 2024`,
+                author: `<i class="fa-solid fa-pencil"></i> Hamza Javed`,
+                tag: `<i class="fa-solid fa-tag"></i> Next.js`,
+                content: `<p>Next.js is a powerful framework built on top of React that adds numerous features to help developers build modern web applications more efficiently. One of its most notable features is server-side rendering (SSR), which allows pages to be rendered on the server before being sent to the client. This improves performance and ensures that the content is SEO-friendly, making Next.js a popular choice for building dynamic websites that need to load quickly while ranking well on search engines.</p> <br>
+                <p>In addition to SSR, Next.js also supports static site generation (SSG), which enables the pre-rendering of pages at build time, resulting in fast load times for static pages.Another advantage of Next.js is its support for file-based routing. Instead of manually setting up routes, developers can create files in the pages directory, and Next.js automatically generates the corresponding routes. This simplifies navigation within the application and makes managing pages more intuitive. The framework also handles API routes, allowing you to easily create serverless functions within your project that can handle data fetching, authentication, and more. </p> <br>
+                <p>These built-in features streamline the development process and reduce the need for additional libraries or configuration.Next.js also excels in optimizing performance through automatic code splitting, where each page only loads the JavaScript needed for that page. This reduces the initial load time and enhances the user experience. Additionally, features like image optimization, integrated CSS, and support for TypeScript make Next.js a versatile choice for both large-scale applications and smaller projects. Whether you're building a blog, an e-commerce site, or a complex dashboard, Next.js provides the tools needed to create highly performant and scalable web applications. </p>`,
+                image: "images/thumb-6.jpg"
+            }
+        };
+
+        // Get the post details based on the ID
+        const post = posts[postId];
+
+        // If post exists, populate the HTML with post data
+        if (post) {
+            document.getElementById('post-title').innerText = post.title;
+            document.getElementById('post-date').innerHTML = post.date;
+            document.getElementById('post-author').innerHTML = post.author;
+            document.getElementById('tag').innerHTML = post.tag;
+            document.getElementById('post-content').innerHTML = post.content;
+            document.getElementById('post-image').src = post.image;
+            document.getElementById('post-image').alt = post.title;
+            if (window.FontAwesome) {
+                window.FontAwesome.dom.i2svg();  // This will re-render any icons in the updated DOM
+            }
+        }
+        else {
+            document.getElementById('post-title').innerText = "Post not found";
+            document.getElementById('post-content').innerText = "Sorry, the post you're looking for doesn't exist.";
+        }
+    </script>
+
+    <script src="https://kit.fontawesome.com/906b6c9939.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
