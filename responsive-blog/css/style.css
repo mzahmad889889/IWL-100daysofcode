@@ -1,4 +1,8 @@
 
+html{
+  scroll-behavior: smooth;
+}
+
 :root {
   /* Primary Colors */
   --text: #0a1918;
