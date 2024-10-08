@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+<body>
+    <div class="parent">
+        <h1>Todo List App</h1>
+        <button id="openPopup">Add Task</button>
+        <div class="listData">
+                <!-- <div class="count">
+                <p class="countValue">1</p>
+                </div>
+                <h3 id="titleData">Title</h3>
+                <h4 id="descriptionData">Description</h4> -->
+        </div>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <a href="#" id="closePopup" class="close">&times;</a>
+            <p>Today Activity</p>
+        </div>
+        <form class="submit">
+            <div class="TaskForm">
+                <div class="title">
+                    <label for="titleValue">Title</label>
+                    <input type="text" placeholder="Enter your Task Title..." id="titleValue" name="titleValue"/>
+                </div>
+                <div class="description">
+                    <label for="textareaValue">Description</label>
+                    <textarea id="textareaValue" name="textareaValue"  placeholder="Enter the Task Description..."></textarea>
+                </div>
+            </div>
+            <div class="subbtn">
+                <button type="submit" class="formSubmit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="overlay"></div>
+</div>
+<script src="listdata.js"></script>
+<script src="todo.js"></script>
+</body>
+</html>
