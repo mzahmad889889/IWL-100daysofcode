@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="Main">
+        <div class="header">
+            <a href="index.html"><img src="images/logo.png" width="160" height="160" alt="logo" /></a>
+            <nav>
+                <ul class="navbar">
+                    <a href="index.html"><li>Products</li></a>
+                    <hr>
+                </ul>
+            </nav>
+            <a href="cart.html"><div class="cartGroup">
+                <img class="cart" src="images/cart_icon.png" alt="cart" />
+                <div class="quantity">0</div>
+            </div></a>
+        </div>
+    </header>
+    <div class="cartItems">
+        <h2>Your Cart</h2>
+        <div class="cartTitle">
+            <p></p>
+            <h3>Title</h3>
+            <h3>Price</h3>
+            <p></p>
+        </div>
+    </div>
+
+    <script>
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartItemsContainer = document.querySelector('.cartItems');
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML += "<p>Your cart is empty</p>";
+        } else {
+            cart.forEach(product => {
+                const item = `
+                    <div class="cartItem" data-title="${product.title}">
+                        <img src="${product.image}" alt="${product.title}" width="100px" />
+                        <h4>${product.title}</h4>
+                        <p>Price: $${product.price}</p>
+                        <p class="dismiss">X</p>
+                    </div>
+                `;
+                cartItemsContainer.innerHTML += item;
+            });
+        }
+
+        let dismissElement = document.querySelectorAll('.dismiss')
+        dismissElement.forEach(dismiss => {
+            dismiss.style.cursor = 'pointer';
+        })
+        function loadCartItems() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            console.log("Cart loaded from localStorage:", cart);
+            return cart;
+        }
+
+        function saveCartItems(cart) {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            console.log("Cart saved to localStorage:", cart);
+        }
+
+        function updateCartQuantity() {
+            const cart = loadCartItems();
+            const cartQuantity = document.querySelector('.quantity');
+            cartQuantity.textContent = cart.length;
+        }
+
+        cartItemsContainer.addEventListener('click', function(event) {
+            if (event.target.classList.contains('dismiss')) {
+                const cartItem = event.target.closest('.cartItem');
+                const itemId = cartItem.getAttribute('data-title');
+
+                let cart = loadCartItems();
+                cart = cart.filter(item => item.title !== itemId);
+
+                saveCartItems(cart);
+
+                cartItem.remove();
+
+                updateCartQuantity(); 
+            }
+        });
+
+        updateCartQuantity();
+
+    </script>
+</body>
+</html>
